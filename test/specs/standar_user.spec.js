@@ -1,8 +1,6 @@
 const LoginPage = require('../pageobjects/login.page');
 const HomePage = require('../pageobjects/home.page');
 
-
-
 describe('Test Login and entry to swaglabs with corrects params', () => {
     beforeAll('Open browser', async () => {
         browser.url('https://www.saucedemo.com/')
@@ -64,7 +62,7 @@ describe('Test Login and entry to swaglabs with corrects params', () => {
     })
     describe('Check if can a complete buy ', () => {
         it('add to car Bag', async () => {
-            await  HomePage.addToCarItemBag()
+            await HomePage.addToCarItemBag()
         });
         it('Entry to the safe page', async () => {
             await HomePage.enterCart()
@@ -84,13 +82,13 @@ describe('Test Login and entry to swaglabs with corrects params', () => {
         })
 
         it('Finish Payment', async () => {
-            await  HomePage.finishPay()
+            await HomePage.finishPay()
         });
     })
 
     describe('User logout using sidebar ', () => {
         it('Exit user', async () => {
-            await  HomePage.userLogout()
+            await HomePage.userLogout()
         });
     })
 

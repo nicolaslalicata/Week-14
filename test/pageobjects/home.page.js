@@ -25,63 +25,66 @@ class HomePage {
     get userExitBtn () {return $('#logout_sidebar_link')}
     get cancelBtn () {return $('#cancel')}
     get badTitle () {return $('#item_3_title_link')}
-    
+    get backShop () {return $('#back-to-products')}
 
+// Setters
+async setFirstName(FirstName) {
+    await this.inputFirstName.setValue(FirstName);
+}
+async setLastName(lastName) {
+    await this.inputLastName.setValue(lastName);
+}
+async setZip(zipDate) {
+    await this.inputZip.setValue(zipDate);
+}
 
-    // Setters
-    async setFirstName (FirstName) {
-        await this.inputFirstName.setValue(FirstName);
-    }
-    async setLastName (lastName) {
-        await this.inputLastName.setValue(lastName);
-    }
-    async setZip (zipDate) {
-        await this.inputZip.setValue(zipDate);
-    }
+// Methods
 
-    // Methods
+async cancelToBuy() {
+    await this.cancelBtn.click();
+}
 
-    async cancelToBuy () {
-        await this.cancelBtn.click();
-    }
+async addToCarItemBag() {
+    await this.addBagBtn.click();
+};
 
-    async addToCarItemBag(){
-        await this.addBagBtn.click();
-    };
+async removeBagToCart() {
+    await this.removeBagBtn.click();
+};
 
-    async removeBagToCart () {
-        await  this.removeBagBtn.click();
-    };
+async backToShop() {
+    await this.backShop.click();
 
-    async enterCart () {
-        await this.shoppingCart.click();
-    }
+}
 
-    async finishBuy () {
-        await  this.checkoutBtn.click();
-    }
+async enterCart() {
+    await this.shoppingCart.click();
+}
 
-    async continueToPay () {
-        await  this.continueBuy.click(); 
-    }
+async finishBuy() {
+    await this.checkoutBtn.click();
+}
 
-    async finishPay () {
-        await  this.finishPayment.click(); 
-    }
+async continueToPay() {
+    await this.continueBuy.click();
+}
 
+async finishPay() {
+    await this.finishPayment.click();
+}
 
+async buy(FirstName, lastName, zipDate) {
+    await this.setFirstName(FirstName);
+    await this.setLastName(lastName);
+    await this.setZip(zipDate);
+    await this.continueBuy.click();
+}
 
-    async buy (FirstName, lastName, zipDate) {
-        await this.setFirstName(FirstName);
-        await this.setLastName(lastName);
-        await this.setZip(zipDate);
-        await this.continueBuy.click();
-    }
+async userLogout() {
+    await this.btnHambur.click();
+    browser.pause(12000);
+    await this.userExitBtn.click()
 
-    async userLogout(){
-        await this.btnHambur.click();
-        browser.pause(10000);
-        await  this.userExitBtn.click()
-    };
+};
 }
 module.exports = new HomePage();
