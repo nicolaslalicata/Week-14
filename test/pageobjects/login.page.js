@@ -6,6 +6,8 @@ class LoginPage {
     get robotImage () {return $('.bot_column')};
     get loginLogo () {return $('.login_logo')}
     get errorInLogin () {return $('.error-message-container.error')}    
+    get errorBtn () {return $('button')}
+    get loginBtn () {return $('#login-button')}
 
     //Setters
     async setUserName (username) {
@@ -14,6 +16,7 @@ class LoginPage {
     async setPassword (password) {
         await this.inputPassword.setValue(password);
     }
+
     //Methods
     async login (username, password) {
         await this.setUserName(username);
@@ -21,5 +24,4 @@ class LoginPage {
         await this.buttonLogin.click();
     }
 }
-
 module.exports = new LoginPage();

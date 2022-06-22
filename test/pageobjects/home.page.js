@@ -23,6 +23,9 @@ class HomePage {
     get inputZip () {return $('#postal-code')}
     get finishPayment () {return $('#finish')}
     get userExitBtn () {return $('#logout_sidebar_link')}
+    get cancelBtn () {return $('#cancel')}
+    get badTitle () {return $('#item_3_title_link')}
+    
 
 
     // Setters
@@ -37,38 +40,48 @@ class HomePage {
     }
 
     // Methods
+
+    async cancelToBuy () {
+        await this.cancelBtn.click();
+    }
+
     async addToCarItemBag(){
-        this.addBagBtn.click();
-        browser.pause(3000);
+        await this.addBagBtn.click();
+    };
+
+    async removeBagToCart () {
+        await  this.removeBagBtn.click();
     };
 
     async enterCart () {
-        this.shoppingCart.click();
-        browser.pause(3000);
+        await this.shoppingCart.click();
     }
 
     async finishBuy () {
-        this.checkoutBtn.click();
-        browser.pause(3000);
+        await  this.checkoutBtn.click();
+    }
+
+    async continueToPay () {
+        await  this.continueBuy.click(); 
     }
 
     async finishPay () {
-        this.finishPayment.click();
-        browser.pause(3000);
+        await  this.finishPayment.click(); 
     }
+
+
 
     async buy (FirstName, lastName, zipDate) {
         await this.setFirstName(FirstName);
         await this.setLastName(lastName);
         await this.setZip(zipDate);
         await this.continueBuy.click();
-
     }
 
     async userLogout(){
-        this.btnHambur.click();
-        browser.pause(3000);
-        this.userExitBtn.click()
+        await this.btnHambur.click();
+        browser.pause(10000);
+        await  this.userExitBtn.click()
     };
 }
 module.exports = new HomePage();

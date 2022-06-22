@@ -64,16 +64,16 @@ describe('Test Login and entry to swaglabs with corrects params', () => {
     })
     describe('Check if can a complete buy ', () => {
         it('add to car Bag', async () => {
-            HomePage.addToCarItemBag()
+            await  HomePage.addToCarItemBag()
         });
         it('Entry to the safe page', async () => {
-            HomePage.enterCart()
+            await HomePage.enterCart()
         });
         it('Verify buttons of Checkout', async () => {
             await expect(HomePage.checkoutBtn).toBeClickable()
         })
         it('Finish buy', async () => {
-            HomePage.finishBuy()
+            await HomePage.finishBuy()
         });
         it('should an error message with no data in inputs', async () => {
             await HomePage.buy('', '', '');
@@ -84,13 +84,13 @@ describe('Test Login and entry to swaglabs with corrects params', () => {
         })
 
         it('Finish Payment', async () => {
-            HomePage.finishPay()
+            await  HomePage.finishPay()
         });
     })
 
     describe('User logout using sidebar ', () => {
         it('Exit user', async () => {
-             HomePage.userLogout()
+            await  HomePage.userLogout()
         });
     })
 
